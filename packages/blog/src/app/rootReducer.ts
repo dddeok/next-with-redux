@@ -1,6 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-
-const rootReducer = combineReducers({});
+import blogReducer from '../features/blog/utils/blog.slice';
+const rootReducer = combineReducers({
+  blog: blogReducer,
+});
 
 export type RootState = ReturnType<typeof rootReducer>;
 

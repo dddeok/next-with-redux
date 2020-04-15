@@ -1,6 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+
 import { CircleButton } from 'core/src/components/Button/CircleButton';
+import { manageStateStart } from '../utils/blog.slice';
 const Container = styled.div`
   width: 1400px;
   height: 100%;
@@ -11,9 +14,11 @@ interface Props {
 }
 
 const Main = () => {
+  const dispatch = useDispatch();
+
   return (
     <Container>
-      <CircleButton>TEST</CircleButton>
+      <CircleButton onClick={() => dispatch(manageStateStart('TEST'))}>TEST</CircleButton>
     </Container>
   );
 };
