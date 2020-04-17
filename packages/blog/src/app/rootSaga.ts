@@ -1,3 +1,6 @@
 import { fork } from 'redux-saga/effects';
 
-export default function* rootSaga() {}
+import { watchBlog } from '../features/blog/utils/blog.saga';
+export default function* rootSaga() {
+  yield fork(watchBlog);
+}

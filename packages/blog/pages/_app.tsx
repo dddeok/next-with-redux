@@ -2,10 +2,10 @@ import * as React from 'react';
 import App from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux, { ReduxWrapperAppProps } from 'next-redux-wrapper';
-
+import withReduxSaga from 'next-redux-saga';
 import { RootState } from '../src/app/rootReducer';
 
-import { createStore } from '../src/app/store';
+import createStore from '../src/app/store';
 
 class MyApp extends App<ReduxWrapperAppProps<RootState>> {
   static async getInitialProps({ Component, ctx }) {
@@ -25,4 +25,4 @@ class MyApp extends App<ReduxWrapperAppProps<RootState>> {
   }
 }
 
-export default withRedux(createStore)(MyApp);
+export default withRedux(createStore)(withReduxSaga(MyApp));

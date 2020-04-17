@@ -13,12 +13,14 @@ interface Props {
   title?: string;
 }
 
-const Main = () => {
+const Main = ({ title }) => {
   const dispatch = useDispatch();
 
   return (
     <Container>
-      <CircleButton onClick={() => dispatch(manageStateStart('TEST'))}>TEST</CircleButton>
+      <CircleButton onClick={() => dispatch(manageStateStart('TEST'))}>
+        {title}
+      </CircleButton>
     </Container>
   );
 };
